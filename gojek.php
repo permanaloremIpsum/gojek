@@ -8,8 +8,8 @@ echo "\n";
 echo "\e[94m          Voucher Claim Gojek           \n";
 echo "\e[91m FORMAT NOMOR HP : INDONESIA '62***' , US='1***'\n";
 echo "\e[93m SCRIPT GOJEK AUTO REGISTER + AUTO CLAIM VOUCHER\n";
-echo "\e[93m SCRIPT : Kumpulanremaja.com\n";
-echo "\e[93m Github: 4kumpulanremaja \n";
+echo "\e[93m SCRIPT : Dede Permana\n";
+echo "\e[93m Github: permanaloremIpsum \n";
 echo "\n";
 echo "\e[96m[?] Masukkan Nomor HP Anda (62/1) : ";
 $nope = trim(fgets(STDIN));
@@ -36,20 +36,75 @@ if ($register == false)
         sleep(3);
         $claim = claim($verif);
         if ($claim == false)
-        {
-        echo "\e[92m[!]".$voucher."\n";
-        sleep(3);
-        echo "\e[93m[!] Trying to redeem Voucher : GOFOODPRAKTIS11 !\n";
-        sleep(3);
-        goto pengen;
-        }
-        pengen:
-        $claim = cekvocer($verif);
-        if ($claim == false ) {
-            echo "\033VOUCHER INVALID/GAGAL REDEEM\n";
-        }
-        else{
-            echo "\e[92m[+] ".$claim."\n";
+            {
+            echo "\e[92m[!]".$voucher."\n";
+            sleep(3);
+            echo "\e[93m[!] Trying to redeem Voucher : GOFOODSANTAI11 !\n";
+            sleep(3);
+            goto next;
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : WADAWGOJEK !\n";
+                sleep(3);
+                goto wadaw;
+            }
+            next:
+            $claim = claim1($verif);
+            if ($claim == false) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : GOFOODSANTAI08 !\n";
+                sleep(3);
+                goto next1;
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : WADAWGOJEK !\n";
+                sleep(3);
+                goto wadaw;
+            }
+            next1:
+            $claim = claim2($verif);
+            if ($claim == false) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : WADAWGOJEK !\n";
+                sleep(3);
+                goto wadaw;
+            }
+          else
+            {
+            echo "\e[92m[+] ".$claim . "\n";
+            sleep(3);
+            echo "\e[93m[!] Trying to redeem Voucher : WADAWGOJEK !\n";
+            sleep(3);
+            goto wadaw;
+            }
+            wadaw:
+            $claim = wadaw($verif);
+            if ($claim == false ) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
+                sleep(3);
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
+                sleep(3);
+                goto pengen;
+            }
+            pengen:
+            $claim = cekvocer($verif);
+            if ($claim == false ) {
+                echo "\033VOUCHER INVALID/GAGAL REDEEM\n";
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
                 
         }
     }
