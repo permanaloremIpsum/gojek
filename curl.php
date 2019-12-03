@@ -140,9 +140,9 @@ function verif($otp, $token)
         return false;
         }
     }
-function claim($token)
+    function claim($token)
     {
-    $data = '{"promo_code":"GOFOODSANTAI19"}';    
+    $data = '{"promo_code":"WADAWGOJEK"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
@@ -156,7 +156,7 @@ function claim($token)
     }
     function claim1($token)
     {
-    $data = '{"promo_code":"GOFOODSANTAI11"}';    
+    $data = '{"promo_code":"GOFOODSANTAI19"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
@@ -170,7 +170,7 @@ function claim($token)
     }
     function claim2($token)
     {
-    $data = '{"promo_code":"GOFOODSANTAI08"}';    
+    $data = '{"promo_code":"GOFOODSANTAI11"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
@@ -182,9 +182,9 @@ function claim($token)
         return false;
         }
     }
-    function wadaw($token)
+    function claim3($token)
     {
-    $data = '{"promo_code":"WADAWGOJEK"}';    
+    $data = '{"promo_code":"GOFOODSANTAI08"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
@@ -193,7 +193,7 @@ function claim($token)
       else
         {
       save("error_log.txt", json_encode($claim));
-          return false;
+        return false;
         }
     }
      function ride($token)
