@@ -142,7 +142,7 @@ function verif($otp, $token)
     }
     function claim($token)
     {
-    $data = '{"promo_code":"WADAWGOJEK"}';    
+    $data = '{"promo_code":"G-L6HDM7H"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
@@ -156,7 +156,7 @@ function verif($otp, $token)
     }
     function claim1($token)
     {
-    $data = '{"promo_code":"GOFOODSANTAI19"}';    
+    $data = '{"promo_code":"G-9QNT9FW"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
@@ -170,7 +170,7 @@ function verif($otp, $token)
     }
     function claim2($token)
     {
-    $data = '{"promo_code":"GOFOODSANTAI11"}';    
+    $data = '{"promo_code":"G-4F35Z7D"}';    
     $claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
     if ($claim['success'] == 1)
         {
